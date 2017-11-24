@@ -1,50 +1,52 @@
 $(document).ready(function(){
   var testNumLength = function(number) {
         if (number.length > 9) {
-            totaldiv.text(number.substr(number.length-9,9));
+            totalDiv.text(number.substr(number.length-9,9));
             if (number.length > 15) {
                 number = "";
-                totaldiv.text("Err");
+                totalDiv.text("Err");
             }
         }
     };
     var number = "";
-    var newnumber = "";
+    var newNumber = "";
     var operator = "";
-    var totaldiv = $("#total");
-    totaldiv.text("0");
+    var totalDiv = $("#total");
+    totalDiv.text("0");
 
 $("#numbers > a").not("#clear,#clearall").click(function(){
     number += $(this).html();
-    totaldiv.text(number);
+    totalDiv.text(number);
     testNumLength(number);
+    if (operator != "") {
+      number == number
+      totalDiv.text("");
+      newNumber += $(this).html();
+      debugger;
+    }
 });
 
 
 $("#operators > a").not("#clear,#clearall").click(function(){
-    console.log("clicked");
     operator = $(this).html();
     number = number
-    totaldiv.text("");
-    debugger;
-
+    totalDiv.text(operator);
+    // debugger;
 });
 
 $("#clear").on("click", function(){
     console.log("clear");
-    $("#total").text("");
-    number = "";
-    operator = "";
-    totaldiv = $("#total");
+    totalDiv.text("");
+    number = number;
+    operator = operator;
 
 })
 
 $("#clearall").on("click", function(){
-    totaldiv.text("");
+    totalDiv.text("");
     number = "";
     operator = "";
 })
-
 
 
 
