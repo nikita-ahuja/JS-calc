@@ -19,19 +19,15 @@ $("#numbers > a").not("#clear,#clearall").click(function(){
     totalDiv.text(number);
     testNumLength(number);
     if (operator != "") {
-      number == number
       totalDiv.text("");
       newNumber += $(this).html();
-      debugger;
+      totalDiv.text(newNumber);
     }
 });
 
-
-$("#operators > a").not("#clear,#clearall").click(function(){
+$("#operators > a").not("#equals").click(function(){
     operator = $(this).html();
-    number = number
     totalDiv.text(operator);
-    // debugger;
 });
 
 $("#clear").on("click", function(){
@@ -48,6 +44,20 @@ $("#clearall").on("click", function(){
     operator = "";
 })
 
+$("#equals").on("click", function(){
+  var finalAnswer = ""
+  if (operator == "*") {
+    finalAnswer = (number * newNumber);
+  } else if (operator == "+") {
+    finalAnswer = (number + newNumber);
+  } else if (operator == "-") {
+    finalAnswer = (number - newNumber);
+  } else if (operator == "/") {
+    finalAnswer = (number / newNumber);
+  };
+  totalDiv.text(finalAnswer);
+  debugger
+});
 
 
 });
