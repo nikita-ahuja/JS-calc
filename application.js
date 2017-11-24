@@ -8,7 +8,7 @@ $(document).ready(function(){
             }
         }
     };
-  var number = "";
+    var number = "";
     var newnumber = "";
     var operator = "";
     var totaldiv = $("#total");
@@ -17,6 +17,8 @@ $(document).ready(function(){
 $("#numbers > a").not("#clear,#clearall").click(function(){
     // console.log("clicked");
     number += $(this).html();
+    debugger;
+    // number = $(this).html
     totaldiv.text(number);
     testNumLength(number);
 });
@@ -24,11 +26,19 @@ $("#numbers > a").not("#clear,#clearall").click(function(){
 $("#clear").on("click", function(){
     console.log("clear");
     $("#total").text("");
+    number = "";
+    operator = "";
+    totaldiv = $("#total");
+
 })
 
 $("#clearall").on("click", function(){
-    console.log("clear");
+    // console.log("clear");
     $("#total").text("");
+    number = "";
+    debugger;
+    operator = "";
+    totaldiv = $("#total");
 })
 
 
