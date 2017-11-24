@@ -15,12 +15,19 @@ $(document).ready(function(){
     totaldiv.text("0");
 
 $("#numbers > a").not("#clear,#clearall").click(function(){
-    // console.log("clicked");
     number += $(this).html();
-    debugger;
-    // number = $(this).html
     totaldiv.text(number);
     testNumLength(number);
+});
+
+
+$("#operators > a").not("#clear,#clearall").click(function(){
+    console.log("clicked");
+    operator = $(this).html();
+    number = number
+    totaldiv.text("");
+    debugger;
+
 });
 
 $("#clear").on("click", function(){
@@ -33,12 +40,9 @@ $("#clear").on("click", function(){
 })
 
 $("#clearall").on("click", function(){
-    // console.log("clear");
-    $("#total").text("");
+    totaldiv.text("");
     number = "";
-    debugger;
     operator = "";
-    totaldiv = $("#total");
 })
 
 
