@@ -19,7 +19,7 @@ $("#numbers > a").not("#clear,#clearall").click(function(){
     totalDiv.text(number);
     testNumLength(number);
     if (operator != "") {
-      totalDiv.text("");
+      // totalDiv.text("");
       newNumber += $(this).html();
       totalDiv.text(newNumber);
     }
@@ -56,7 +56,7 @@ $("#equals").on("click", function(){
     finalAnswer = (number / newNumber);
   };
   totalDiv.text(finalAnswer);
-  debugger
+  // debugger
 });
 
 
