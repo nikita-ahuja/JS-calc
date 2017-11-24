@@ -1,36 +1,63 @@
 $(document).ready(function(){
   var testNumLength = function(number) {
         if (number.length > 9) {
-            totaldiv.text(number.substr(number.length-9,9));
+            totalDiv.text(number.substr(number.length-9,9));
             if (number.length > 15) {
                 number = "";
-                totaldiv.text("Err");
+                totalDiv.text("Err");
             }
         }
     };
-  var number = "";
-    var newnumber = "";
+    var number = "";
+    var newNumber = "";
     var operator = "";
-    var totaldiv = $("#total");
-    totaldiv.text("0");
+    var totalDiv = $("#total");
+    totalDiv.text("0");
 
 $("#numbers > a").not("#clear,#clearall").click(function(){
-    // console.log("clicked");
     number += $(this).html();
-    totaldiv.text(number);
+    totalDiv.text(number);
     testNumLength(number);
+    if (operator != "") {
+      // totalDiv.text("");
+      newNumber += $(this).html();
+      totalDiv.text(newNumber);
+    }
+});
+
+$("#operators > a").not("#equals").click(function(){
+    operator = $(this).html();
+    totalDiv.text(operator);
 });
 
 $("#clear").on("click", function(){
     console.log("clear");
-    $("#total").text("");
+    totalDiv.text("");
+    number = number;
+    operator = operator;
+
 })
 
 $("#clearall").on("click", function(){
-    console.log("clear");
-    $("#total").text("");
+    totalDiv.text("");
+    number = "";
+    operator = "";
 })
 
+$("#equals").on("click", function(){
+  var finalAnswer = ""
+  if (operator == "*") {
+    finalAnswer = (number * newNumber);
+  } else if (operator == "+") {
+    finalAnswer = (number + newNumber);
+  } else if (operator == "-") {
+    finalAnswer = (number - newNumber);
+  } else if (operator == "/") {
+    finalAnswer = (number / newNumber);
+  };
+  totalDiv.text(finalAnswer);
+  // debugger
+});
 
 
 });
